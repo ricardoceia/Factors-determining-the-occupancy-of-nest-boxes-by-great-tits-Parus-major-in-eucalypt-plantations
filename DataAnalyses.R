@@ -69,8 +69,7 @@ summary(avg.models)
 summary(null.model <- glmer(GreatTit ~ 1 + (1|occupPrevYear) + (1|year) + (1|plot),
                          data=nb, family=binomial(link="logit"), nAGQ=1,
                          control=glmerControl(optimizer="bobyqa",optCtrl=list(maxfun=2e5)))) # Null model
-AICc(avg.models,global.model,null.model) # Extracting AICc
-
+AICc(global.model,null.model) # Extracting AICc
 
 #### Plot model coefficients ####
 mA<-summary(avg.models) #pulling out model averages
